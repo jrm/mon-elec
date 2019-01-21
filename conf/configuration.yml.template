@@ -1,0 +1,13 @@
+:influxdb:
+  :host: ***
+  :database: ***
+:log_level: DEBUG
+:var_map:
+  A1:
+   :name: 'amps'
+   :value_transform: :to_f
+   :min: 0
+   :max: 100
+:collector:
+  :command: "heyu show oregon"
+  :cycle_time: 3
