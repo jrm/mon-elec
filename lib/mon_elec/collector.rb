@@ -6,7 +6,7 @@ module MonElec
       track_value = 0
       loop do
         line = `#{MonElec.configuration[:collector][:command]}`
-        match = line.match(/^(?<code>[A-Z]\d).*(?<value>\d+\.\d)+A/)
+        match = line.match(/^(?<code>[A-Z]\d)\s.*Curr\s(?<value>\d+\.\d+)A/)
         if match && match[:code] && match[:value]
           if series = MonElec.configuration[:var_map][match[:code]]
             value = match[:value].send(series[:value_transform])
